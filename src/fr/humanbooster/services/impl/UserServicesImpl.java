@@ -1,10 +1,11 @@
-package fr.humanbooster.services;
+package fr.humanbooster.services.impl;
 
 import fr.humanbooster.ideas.Answer;
 import fr.humanbooster.ideas.Eval;
 import fr.humanbooster.ideas.Idea;
 import fr.humanbooster.ideas.Survey;
 import fr.humanbooster.ideas.Vote;
+import fr.humanbooster.services.UserServices;
 import fr.humanbooster.users.User;
 
 public class UserServicesImpl implements UserServices {

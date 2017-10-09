@@ -1,4 +1,4 @@
-package fr.humanbooster.services;
+package fr.humanbooster.services.impl;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -8,6 +8,7 @@ import fr.humanbooster.ideas.Idea;
 import fr.humanbooster.ideas.Option;
 import fr.humanbooster.ideas.Post;
 import fr.humanbooster.ideas.Survey;
+import fr.humanbooster.services.Database;
 import fr.humanbooster.users.Member;
 import fr.humanbooster.users.User;
 
