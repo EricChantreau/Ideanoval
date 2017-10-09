@@ -2,15 +2,15 @@ package fr.humanbooster.test;
 
 import java.util.Scanner;
 
-import fr.humanbooster.services.UserServices;
-import fr.humanbooster.services.UserServicesImpl;
+import fr.humanbooster.services.LoginServices;
+import fr.humanbooster.services.LoginServicesImpl;
 import fr.humanbooster.users.Member;
 import fr.humanbooster.users.User;
 
 public class UserTest {
 
 	public static void main(String[] args) {
-		UserServices us = new UserServicesImpl();
+		LoginServices us = new LoginServicesImpl();
 
 		Scanner sc = new Scanner(System.in);
 

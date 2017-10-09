@@ -3,5 +3,3 @@ git branch -d branche_locale
 
 Supprimer branche distante:
 git push origin --delete branche_distante
-
-
