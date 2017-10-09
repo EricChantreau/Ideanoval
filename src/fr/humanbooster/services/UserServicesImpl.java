@@ -43,9 +43,9 @@ public class UserServicesImpl implements UserServices {
 	public void voteForIdea(User user, Idea idea, Eval eval) {
 		Vote vote = new Vote(user, idea, eval);
 		if ((!user.getVotes().contains(vote)) && (!idea.getVotes().contains(vote))) {
-		user.getVotes().add(vote);
-		idea.getVotes().add(vote);
-		idea.voteForIdea(vote);
+			user.getVotes().add(vote);
+			idea.getVotes().add(vote);
+			idea.voteForIdea(vote);
 		} else {
 			System.out.println("Vous avez déjà voté pour cette idée.");
 		}
