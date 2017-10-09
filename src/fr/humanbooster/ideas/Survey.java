@@ -52,7 +52,7 @@ public class Survey extends Post {
 		return c.getTime();
 	}
 
-	public void getUserVote (User user, int rangOption) {
+	public void getUserVote(User user, int rangOption) {
 		Vote v = new Vote();
 		if (!(rangOption < 0) && (rangOption <= options.size())) {
 			options.get(rangOption).applyUserVote();
@@ -61,7 +61,7 @@ public class Survey extends Post {
 			System.out.println("Vote incorrect, veuillez saisir un nombre compris entre 0 et " + options.size() + ".");
 		}
 	}
-	
+
 	@Override
 	public String toString() {
 		SimpleDateFormat sdf = new SimpleDateFormat("EEE dd MMM yyyy");
@@ -70,10 +70,10 @@ public class Survey extends Post {
 				+ "\n";
 	}
 
-	public String optionsToString() {
+	private String optionsToString() {
 		int i = 1;
 		String option = "";
-		for (Option opt: options) {
+		for (Option opt : options) {
 			option = option.concat(String.valueOf(i)).concat(". ").concat(opt.toString());
 			i++;
 		}
