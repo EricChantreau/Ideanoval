@@ -3,7 +3,7 @@ package fr.humanbooster.test;
 import java.util.Scanner;
 
 import fr.humanbooster.services.LoginServices;
-import fr.humanbooster.services.LoginServicesImpl;
+import fr.humanbooster.services.impl.LoginServicesImpl;
 import fr.humanbooster.users.Member;
 import fr.humanbooster.users.User;
 

@@ -1,7 +1,9 @@
-package fr.humanbooster.services;
+package fr.humanbooster.services.impl;
 
 import java.util.List;
 
+import fr.humanbooster.services.Database;
+import fr.humanbooster.services.LoginServices;
 import fr.humanbooster.users.User;
 
 public class LoginServicesImpl implements LoginServices {

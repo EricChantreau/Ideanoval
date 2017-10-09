@@ -8,9 +8,9 @@ import fr.humanbooster.ideas.Idea;
 import fr.humanbooster.ideas.Post;
 import fr.humanbooster.ideas.Survey;
 import fr.humanbooster.services.Database;
-import fr.humanbooster.services.DatabaseImpl;
 import fr.humanbooster.services.UserServices;
-import fr.humanbooster.services.UserServicesImpl;
+import fr.humanbooster.services.impl.DatabaseImpl;
+import fr.humanbooster.services.impl.UserServicesImpl;
 import fr.humanbooster.users.Member;
 import fr.humanbooster.users.User;
 
