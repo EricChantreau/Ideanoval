@@ -12,3 +12,6 @@ git branch -r
 
 Lister toutes les branches locales et distantes:
 git branch -a
+
+Mettre a jour liste branches apr√s suppression:
+git fetch -p
