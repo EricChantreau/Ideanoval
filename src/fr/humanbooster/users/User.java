@@ -83,6 +83,10 @@ public abstract class User {
 		return false;
 	}
 	
+	public void addVote(Vote vote) {
+		this.votes.add(vote);
+	}
+	
 	@Override
 	public String toString() {
 		String pwd ="";
