@@ -1,10 +1,13 @@
 package fr.humanbooster.users;
 
+import fr.humanbooster.ideas.Vote;
+
 public abstract class User {
 
 	private String email;
 	private String password;
 	private String username;
+	private Vote votes = new Vote();
 
 	public User(String email, String password, String username) {
 		this.email = email;
@@ -34,6 +37,14 @@ public abstract class User {
 
 	public void setUsername(String username) {
 		this.username = username;
+	}
+	
+	public Vote getVotes() {
+		return votes;
+	}
+
+	public void setVotes(Vote votes) {
+		this.votes = votes;
 	}
 
 	@Override

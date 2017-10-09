@@ -52,17 +52,17 @@ public class Idea extends Post {
 		Vote v = new Vote();
 		Calendar c = Calendar.getInstance();
 		if (this.getExpiracyDate().after(c.getTime())) {
-			if (v.getVoteRight() == true) {
+			if (!v.getVotes().contains(this)) {
 				if (vote.equals("top")) {
 					top++;
-					v.setVoteRight(false);
+					v.voteFor(this);;
 				} else if (vote.equals("flop")) {
 					flop++;
-					v.setVoteRight(false);
+					v.voteFor(this);;
 				} else
 					System.out.println("Vote incorrect, veuillez saisir top ou flop");
 			} else
-				System.out.println("Vous avez déjà voté pour cette idée");
+				System.out.println("Vous avez déjà voté pour cette idée.");
 		} else
 			System.out.println("Vous avez dépassé la date limite pour voter pour cette idée");
 	}

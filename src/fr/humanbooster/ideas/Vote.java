@@ -1,19 +1,30 @@
 package fr.humanbooster.ideas;
 
-public class Vote {
+import java.util.HashSet;
+import java.util.Set;
 
-	private boolean voteRight = true;
+public class Vote {
+	private Set<Post> votes = new HashSet<>();
 
 	public Vote() {
-
+		super();
 	}
 
-	public boolean getVoteRight() {
-		return voteRight;
+	public Vote(Set<Post> votes) {
+		super();
+		this.votes = votes;
 	}
 
-	public void setVoteRight(boolean voteRight) {
-		this.voteRight = voteRight;
+	public Set<Post> getVotes() {
+		return votes;
 	}
 
+	public void setVotes(Set<Post> votes) {
+		this.votes = votes;
+	}
+
+	public void voteFor (Post post) {
+			this.votes.add(post);
+	}
+	
 }

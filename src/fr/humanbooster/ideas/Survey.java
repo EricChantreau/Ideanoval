@@ -53,13 +53,19 @@ public class Survey extends Post {
 	}
 
 	public void getUserVote (User user, int rangOption) {
-		Vote v = new Vote();
-		if (!(rangOption < 0) && (rangOption <= options.size())) {
+		Vote v = user.getVotes();
+		if ((rangOption >= 0) && (rangOption <= options.size()) && (!v.getVotes().contains(this))) {
 			options.get(rangOption).applyUserVote();
-			v.setVoteRight(false);
+			v.voteFor(this);
+		} else if (v.getVotes().contains(this)){
+			System.out.println("Vous avez déjà voté pour cette idée.");
 		} else {
-			System.out.println("Vote incorrect, veuillez saisir un nombre compris entre 0 et " + options.size() + ".");
+			System.out.println("Vote incorrect, vous devez saisir un nombre compris entre 0 et " + options.size() + ".");
 		}
+	}
+	
+	public void addUserOption (String option) {
+		options.add(new Option(option));
 	}
 	
 	@Override
