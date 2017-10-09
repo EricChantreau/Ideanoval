@@ -39,6 +39,7 @@ public class IdeaNovalTest {
 		
 		Survey sv1 = (Survey) posts.get(2);
 		sv1.getOptions().get(2).applyUserVote();
+		sv1.getOptions().get(0).applyUserVote();
 		
 		/* AFFICHAGE */
 		System.out.println(posts);
