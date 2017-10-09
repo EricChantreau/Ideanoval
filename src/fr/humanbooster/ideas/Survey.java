@@ -76,10 +76,10 @@ public class Survey extends Post {
 				+ "\n";
 	}
 
-	public String optionsToString() {
+	private String optionsToString() {
 		int i = 1;
 		String option = "";
-		for (Option opt: options) {
+		for (Option opt : options) {
 			option = option.concat(String.valueOf(i)).concat(". ").concat(opt.toString());
 			i++;
 		}
