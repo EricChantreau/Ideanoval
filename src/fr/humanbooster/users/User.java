@@ -1,5 +1,8 @@
 package fr.humanbooster.users;
 
+import java.util.ArrayList;
+import java.util.List;
+
 import fr.humanbooster.ideas.Vote;
 
 public abstract class User {
@@ -7,7 +10,7 @@ public abstract class User {
 	private String email;
 	private String password;
 	private String username;
-	private Vote votes = new Vote();
+	private List<Vote> votes = new ArrayList<Vote>();
 
 	public User(String email, String password, String username) {
 		this.email = email;
@@ -39,11 +42,11 @@ public abstract class User {
 		this.username = username;
 	}
 	
-	public Vote getVotes() {
+	public List<Vote> getVotes() {
 		return votes;
 	}
 
-	public void setVotes(Vote votes) {
+	public void setVotes(List<Vote> votes) {
 		this.votes = votes;
 	}
 
