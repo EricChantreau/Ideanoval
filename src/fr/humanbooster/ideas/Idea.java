@@ -70,7 +70,8 @@ public class Idea extends Post {
 				break;
 			default:
 				break;
-			};				
+			};
+			this.votes.add(vote);
 		} else
 			System.out.println("Vous avez dépassé la date limite pour voter pour cette idée");
 	}

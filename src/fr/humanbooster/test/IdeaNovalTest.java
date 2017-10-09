@@ -3,6 +3,7 @@ package fr.humanbooster.test;
 import java.util.List;
 
 import fr.humanbooster.ideas.Comment;
+import fr.humanbooster.ideas.Eval;
 import fr.humanbooster.ideas.Idea;
 import fr.humanbooster.ideas.Post;
 import fr.humanbooster.ideas.Survey;
@@ -41,14 +42,16 @@ public class IdeaNovalTest {
 		id1.addComment(ct4);
 
 		Survey sv1 = (Survey) posts.get(2);
-		// sv1.getOptions().get(2).applyUserVote();
-		// sv1.getOptions().get(0).applyUserVote();
 
 		us.answerToSurvey(mb1, sv1, 2);
 		us.answerToSurvey(mb1, sv1, 1);
 
 		us.answerToSurvey(mb3, sv1, 0);
 
+		us.voteForIdea(mb2, id1, Eval.FLOP);
+		us.voteForIdea(mb3, id1, Eval.TOP);
+		us.voteForIdea(mb2, id1, Eval.FLOP);
+		
 		/* AFFICHAGE */
 		System.out.println(posts);
 

@@ -42,12 +42,11 @@ public class UserServicesImpl implements UserServices {
 	@Override
 	public void voteForIdea(User user, Idea idea, Eval eval) {
 		Vote vote = new Vote(user, idea, eval);
-		if ((!user.getVotes().contains(vote)) && (!idea.getVotes().contains(vote))) {
-			user.getVotes().add(vote);
-			idea.getVotes().add(vote);
+		if (!user.containsVote(vote)) {
+			user.addVote(vote);
 			idea.voteForIdea(vote);
 		} else {
-			System.out.println("Vous avez déjà voté pour cette idée.");
+			System.out.println(user.getUsername() + " a déjà voté pour " + idea.getTitle() + ".");
 		}
 	}
 

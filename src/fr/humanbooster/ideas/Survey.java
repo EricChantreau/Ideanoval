@@ -15,7 +15,6 @@ public class Survey extends Post {
 
 	public Survey() {
 		super();
-		System.out.println("Création d'un nouveau sondage.");
 	}
 
 	public Survey(Member author, String title, String description, List<Option> options, int duration) {
