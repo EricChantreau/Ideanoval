@@ -1,5 +1,9 @@
 package fr.humanbooster.users;
 
+import java.util.ArrayList;
+import java.util.List;
+
+import fr.humanbooster.ideas.Answer;
 import fr.humanbooster.ideas.Vote;
 
 public abstract class User {
@@ -8,11 +12,13 @@ public abstract class User {
 	private String password;
 	private String username;
 	private Vote votes = new Vote();
+	private List<Answer> answers;
 
 	public User(String email, String password, String username) {
 		this.email = email;
 		this.password = password;
 		this.username = username;
+		this.answers = new ArrayList<>();
 	}
 
 	public String getEmail() {
@@ -38,7 +44,7 @@ public abstract class User {
 	public void setUsername(String username) {
 		this.username = username;
 	}
-	
+
 	public Vote getVotes() {
 		return votes;
 	}
@@ -47,9 +53,29 @@ public abstract class User {
 		this.votes = votes;
 	}
 
+	public List<Answer> getAnswers() {
+		return answers;
+	}
+
+	public void setAnswers(List<Answer> answers) {
+		this.answers = answers;
+	}
+
+	public boolean containsAnswer(Answer answer) {
+		for (Answer myAnswer : answers) {
+			if (myAnswer.getUser().equals(answer.getUser()) && myAnswer.getSurvey().equals(answer.getSurvey()))
+				return true;
+		}
+		return false;
+	}
+
+	public void addAnswer(Answer answer) {
+		this.answers.add(answer);
+	}
+
 	@Override
 	public String toString() {
-		String pwd ="";
+		String pwd = "";
 		for (int i = 0; i < password.length(); i++) {
 			pwd.concat("*");
 		}
