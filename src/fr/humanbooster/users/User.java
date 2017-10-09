@@ -74,6 +74,15 @@ public abstract class User {
 		this.answers.add(answer);
 	}
 
+	public boolean containsVote(Vote vote) {
+		for (Vote myVote : votes) {
+			if (myVote.getUser().equals(vote.getUser()) && myVote.getIdea().equals(vote.getIdea())) {
+				return true;
+			}
+		}
+		return false;
+	}
+	
 	@Override
 	public String toString() {
 		String pwd ="";

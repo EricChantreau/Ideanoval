@@ -7,6 +7,7 @@ import fr.humanbooster.ideas.Answer;
 import fr.humanbooster.ideas.Eval;
 import fr.humanbooster.ideas.Idea;
 import fr.humanbooster.ideas.Survey;
+import fr.humanbooster.ideas.Vote;
 import fr.humanbooster.users.Member;
 import fr.humanbooster.users.User;
 

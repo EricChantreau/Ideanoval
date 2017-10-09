@@ -22,11 +22,11 @@ public class Vote {
 		this.user = user;
 	}
 
-	public Post getPost() {
+	public Post getIdea() {
 		return idea;
 	}
 
-	public void setPost(Idea idea) {
+	public void setIdea(Idea idea) {
 		this.idea = idea;
 	}
 
