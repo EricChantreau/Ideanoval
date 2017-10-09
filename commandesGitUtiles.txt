@@ -3,3 +3,12 @@ git branch -d branche_locale
 
 Supprimer branche distante:
 git push origin --delete branche_distante
+
+Lister les branches locales:
+git branch
+
+Lister toutes les branches distantes:
+git branch -r
+
+Lister toutes les branches locales et distantes:
+git branch -a
