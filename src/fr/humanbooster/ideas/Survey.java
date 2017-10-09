@@ -1,0 +1,83 @@
+package fr.humanbooster.ideas;
+
+import java.text.SimpleDateFormat;
+import java.util.ArrayList;
+import java.util.Calendar;
+import java.util.Date;
+import java.util.List;
+
+import fr.humanbooster.users.Member;
+import fr.humanbooster.users.User;
+
+public class Survey extends Post {
+	private List<Option> options = new ArrayList<Option>();
+	private int duration;
+
+	public Survey() {
+		super();
+		System.out.println("Création d'un nouveau sondage.");
+	}
+
+	public Survey(Member author, String title, String description, List<Option> options, int duration) {
+		super(author, title, description);
+		this.options = options;
+		this.duration = duration;
+	}
+
+	public Survey(Member author, String title, String description, int duration) {
+		super(author, title, description);
+		this.duration = duration;
+	}
+
+	public List<Option> getOptions() {
+		return options;
+	}
+
+	public void setOptions(List<Option> options) {
+		this.options = options;
+	}
+
+	public int getDuration() {
+		return duration;
+	}
+
+	public void setDuration(int duration) {
+		this.duration = duration;
+	}
+
+	public Date getExpiracyDate() {
+		Calendar c = Calendar.getInstance();
+		c.setTime(super.getDate());
+		c.add(Calendar.DATE, duration);
+		return c.getTime();
+	}
+
+	public void getUserVote (User user, int rangOption) {
+		Vote v = new Vote();
+		if (!(rangOption < 0) && (rangOption <= options.size())) {
+			options.get(rangOption).applyUserVote();
+			v.setVoteRight(false);
+		} else {
+			System.out.println("Vote incorrect, veuillez saisir un nombre compris entre 0 et " + options.size() + ".");
+		}
+	}
+	
+	@Override
+	public String toString() {
+		SimpleDateFormat sdf = new SimpleDateFormat("EEE dd MMM yyyy");
+		return "\n< SONDAGE > \n" + super.toString() + "\n" + "Consultation ouverte jusqu'au "
+				+ sdf.format(getExpiracyDate()) + "\n" + optionsToString() + "\nCommentaires :\n" + super.getComment()
+				+ "\n";
+	}
+
+	public String optionsToString() {
+		int i = 1;
+		String option = "";
+		for (Option opt: options) {
+			option = option.concat(String.valueOf(i)).concat(". ").concat(opt.toString());
+			i++;
+		}
+		return option;
+	}
+
+}
