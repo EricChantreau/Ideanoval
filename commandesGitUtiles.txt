@@ -1,3 +1,6 @@
+Créer une branche
+git checkout -b nom_branche
+
 Supprimer branche locale:
 git branch -d branche_locale
 
