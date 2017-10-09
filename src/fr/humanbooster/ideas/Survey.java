@@ -7,11 +7,11 @@ import java.util.Date;
 import java.util.List;
 
 import fr.humanbooster.users.Member;
-import fr.humanbooster.users.User;
 
 public class Survey extends Post {
 	private List<Option> options = new ArrayList<Option>();
 	private int duration;
+	private List<Answer> answers;
 
 	public Survey() {
 		super();
@@ -27,6 +27,7 @@ public class Survey extends Post {
 	public Survey(Member author, String title, String description, int duration) {
 		super(author, title, description);
 		this.duration = duration;
+		this.answers = new ArrayList<>();
 	}
 
 	public List<Option> getOptions() {
@@ -45,6 +46,19 @@ public class Survey extends Post {
 		this.duration = duration;
 	}
 
+	public List<Answer> getAnswers() {
+		return answers;
+	}
+
+	public void setAnswers(List<Answer> answers) {
+		this.answers = answers;
+	}
+
+	public void addAnswer(Answer answer) {
+		this.answers.add(answer);
+		this.options.get(answer.getOptionIndex()).applyUserVote();
+	}
+
 	public Date getExpiracyDate() {
 		Calendar c = Calendar.getInstance();
 		c.setTime(super.getDate());
@@ -52,22 +66,10 @@ public class Survey extends Post {
 		return c.getTime();
 	}
 
-	public void getUserVote (User user, int rangOption) {
-		Vote v = user.getVotes();
-		if ((rangOption >= 0) && (rangOption <= options.size()) && (!v.getVotes().contains(this))) {
-			options.get(rangOption).applyUserVote();
-			v.voteFor(this);
-		} else if (v.getVotes().contains(this)){
-			System.out.println("Vous avez déjà voté pour cette idée.");
-		} else {
-			System.out.println("Vote incorrect, vous devez saisir un nombre compris entre 0 et " + options.size() + ".");
-		}
-	}
-	
-	public void addUserOption (String option) {
+	public void addUserOption(String option) {
 		options.add(new Option(option));
 	}
-	
+
 	@Override
 	public String toString() {
 		SimpleDateFormat sdf = new SimpleDateFormat("EEE dd MMM yyyy");

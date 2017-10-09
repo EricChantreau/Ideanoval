@@ -1,30 +1,45 @@
 package fr.humanbooster.ideas;
 
-import java.util.HashSet;
-import java.util.Set;
+import fr.humanbooster.users.User;
 
 public class Vote {
-	private Set<Post> votes = new HashSet<>();
+	private User user;
+	private Idea idea;
+	private Eval eval;
 
-	public Vote() {
+	public Vote(User user, Idea idea, Eval eval) {
 		super();
+		this.user = user;
+		this.idea = idea;
+		this.eval = eval;
 	}
 
-	public Vote(Set<Post> votes) {
-		super();
-		this.votes = votes;
+	public User getUser() {
+		return user;
 	}
 
-	public Set<Post> getVotes() {
-		return votes;
+	public void setUser(User user) {
+		this.user = user;
 	}
 
-	public void setVotes(Set<Post> votes) {
-		this.votes = votes;
+	public Post getPost() {
+		return idea;
 	}
 
-	public void voteFor (Post post) {
-			this.votes.add(post);
+	public void setPost(Idea idea) {
+		this.idea = idea;
 	}
-	
+
+	public Eval getEval() {
+		return eval;
+	}
+
+	public void setEval(Eval eval) {
+		this.eval = eval;
+	}
+
+	@Override
+	public String toString() {
+		return "Vote [user=" + user + ", post=" + idea + ", eval=" + eval + "]";
+	}
 }

@@ -8,6 +8,8 @@ import fr.humanbooster.ideas.Post;
 import fr.humanbooster.ideas.Survey;
 import fr.humanbooster.services.Database;
 import fr.humanbooster.services.DatabaseImpl;
+import fr.humanbooster.services.UserServices;
+import fr.humanbooster.services.UserServicesImpl;
 import fr.humanbooster.users.Member;
 import fr.humanbooster.users.User;
 
@@ -15,6 +17,7 @@ public class IdeaNovalTest {
 
 	public static void main(String[] args) {
 		Database data = new DatabaseImpl();
+		UserServices us = new UserServicesImpl();
 
 		List<User> users = data.getUsers();
 		Member mb1 = (Member) users.get(0);
@@ -36,11 +39,16 @@ public class IdeaNovalTest {
 		data.addUser(new Member("charles@groupe.hb", "titi&toto", "Charles"));
 		Comment ct4 = new Comment((Member) users.get(4), "Damned! On a usurpé mon identité !");
 		id1.addComment(ct4);
-		
+
 		Survey sv1 = (Survey) posts.get(2);
-		sv1.getOptions().get(2).applyUserVote();
-		sv1.getOptions().get(0).applyUserVote();
-		
+		// sv1.getOptions().get(2).applyUserVote();
+		// sv1.getOptions().get(0).applyUserVote();
+
+		us.answerToSurvey(mb1, sv1, 2);
+		us.answerToSurvey(mb1, sv1, 1);
+
+		us.answerToSurvey(mb3, sv1, 0);
+
 		/* AFFICHAGE */
 		System.out.println(posts);
 

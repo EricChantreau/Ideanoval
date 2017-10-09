@@ -1,19 +1,20 @@
 package fr.humanbooster.ideas;
 
+import java.util.ArrayList;
 import java.util.Calendar;
 import java.util.Date;
+import java.util.List;
 
 import fr.humanbooster.users.Member;
-import fr.humanbooster.users.User;
 
 public class Idea extends Post {
 
 	private int top;
 	private int flop;
+	private List<Vote> votes = new ArrayList<Vote>();
 
 	public Idea() {
 		super();
-		System.out.println("Création d'une nouvelle idée.");
 		top = 0;
 		flop = 0;
 	}
@@ -40,6 +41,14 @@ public class Idea extends Post {
 		this.flop = flop;
 	}
 
+	public List<Vote> getVotes() {
+		return votes;
+	}
+
+	public void setVotes(List<Vote> votes) {
+		this.votes = votes;
+	}
+
 	public Date getExpiracyDate() {
 		Calendar c = Calendar.getInstance();
 		c.setTime(super.getDate());
@@ -48,21 +57,20 @@ public class Idea extends Post {
 	}
 
 	// méthode pour voter pour une idée.
-	public void voteForIdea(User user, String vote) {
-		Vote v = new Vote();
+	public void voteForIdea(Vote vote) {
 		Calendar c = Calendar.getInstance();
-		if (this.getExpiracyDate().after(c.getTime())) {
-			if (!v.getVotes().contains(this)) {
-				if (vote.equals("top")) {
-					top++;
-					v.voteFor(this);;
-				} else if (vote.equals("flop")) {
-					flop++;
-					v.voteFor(this);;
-				} else
-					System.out.println("Vote incorrect, veuillez saisir top ou flop");
-			} else
-				System.out.println("Vous avez déjà voté pour cette idée.");
+		boolean canBeVoted = this.getExpiracyDate().after(c.getTime());
+		if (canBeVoted) {
+			switch (vote.getEval()) {
+			case TOP:
+				top++;
+				break;
+			case FLOP:
+				flop++;
+				break;
+			default:
+				break;
+			};				
 		} else
 			System.out.println("Vous avez dépassé la date limite pour voter pour cette idée");
 	}
