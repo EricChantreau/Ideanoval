@@ -3,6 +3,7 @@ package fr.humanbooster.services;
 import java.util.ArrayList;
 import java.util.List;
 
+import fr.humanbooster.ideas.Idea;
 import fr.humanbooster.users.Member;
 import fr.humanbooster.users.User;
 
@@ -32,6 +33,12 @@ public class UserServicesImpl implements UserServices {
 		}
 
 		return null;
+	}
+
+	@Override
+	public void voteForIdea(User user, Idea idea, String vote) {
+		// TODO Auto-generated method stub
+
 	}
 
 }
