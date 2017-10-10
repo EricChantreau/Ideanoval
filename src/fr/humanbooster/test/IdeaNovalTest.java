@@ -34,6 +34,7 @@ public class IdeaNovalTest {
 		
 		List<Category> categories = data.getCategories();
 		Category cat1 = categories.get(0);
+		Category cat2 = categories.get(1);
 
 		Comment ct1 = new Comment(mb1, "First!");
 		id1.addComment(ct1);
@@ -70,6 +71,7 @@ public class IdeaNovalTest {
 		as.deleteCategory(cat1, categories);
 		as.disablePost(sv1);
 		as.disableComment(ct1);
+		as.customizeCategory(cat2);
 		
 		/* AFFICHAGE */
 		System.out.println(posts);
