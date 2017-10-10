@@ -74,9 +74,18 @@ public class IdeaNovalTest {
 		as.disableComment(ct1);
 		as.customizeCategory(cat2);
 
+		List<User> mostIdeaUsers = data.getMostIdeaUsers();
+
 		/* AFFICHAGE */
 		System.out.println(posts);
 		System.out.println(categories);
+
+		System.out.println("\nTop posters:");
+		int count = 1;
+		for (User user : mostIdeaUsers) {
+			System.out.println(count + ". " + user.getUsername());
+			count++;
+		}
 
 	}
 }
