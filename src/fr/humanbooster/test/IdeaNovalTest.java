@@ -21,7 +21,7 @@ import fr.humanbooster.users.User;
 public class IdeaNovalTest {
 
 	public static void main(String[] args) {
-		Database data = new DatabaseImpl();
+		Database data = DatabaseImpl.getInstance();
 		AdminServices as = new AdminServicesImpl();
 		MemberServices us = new MemberServicesImpl();
 
@@ -73,7 +73,7 @@ public class IdeaNovalTest {
 		as.disablePost(sv1);
 		as.disableComment(ct1);
 		as.customizeCategory(cat2);
-		
+
 		/* AFFICHAGE */
 		System.out.println(posts);
 		System.out.println(categories);

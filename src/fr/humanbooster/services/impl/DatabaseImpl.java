@@ -30,7 +30,7 @@ public class DatabaseImpl implements Database {
 	private List<Category> categories;
 	private List<Alert> alerts;
 
-	public DatabaseImpl() {
+	private DatabaseImpl() {
 		initUsers();
 		initPosts();
 		initCategories();
@@ -104,11 +104,11 @@ public class DatabaseImpl implements Database {
 	public void addCategory(Category category) {
 		categories.add(category);
 	}
-	
-	public List<Alert> getAlerts(){
+
+	public List<Alert> getAlerts() {
 		return alerts;
 	}
-	
+
 	public void addAlert(Alert alert) {
 		alerts.add(alert);
 	}
