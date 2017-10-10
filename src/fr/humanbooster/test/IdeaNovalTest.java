@@ -3,7 +3,6 @@ package fr.humanbooster.test;
 import java.util.ArrayList;
 import java.util.List;
 
-import fr.humanbooster.ideas.Alert;
 import fr.humanbooster.ideas.Category;
 import fr.humanbooster.ideas.Comment;
 import fr.humanbooster.ideas.Eval;
@@ -80,44 +79,42 @@ public class IdeaNovalTest {
 //		as.disableComment(ct1);
 //		as.customizeCategory(cat2);
 
-		List<User> mostIdeaUsers = data.getMostIdeaUsers();
+//		List<User> mostIdeaUsers = data.getMostIdeaUsers();
 		/* AFFICHAGE */
 //		System.out.println(posts);
 //		System.out.println(categories);
 
-		System.out.println("\nClassement Tops :");
+//		System.out.println("\nClassement Tops :");
 		int count = 1;
-		Idea[] topIdeas = rank.topRanking(ideas);
-		for (Idea idea : topIdeas) {
-			System.out.println(count + ". " + idea.getTitle() + " (" + idea.getTop() + " votes Top)");
-			count++;
-		}
+//		Idea[] topIdeas = rank.topRanking(ideas);
+//		for (Idea idea : topIdeas) {
+//			System.out.println(count + ". " + idea.getTitle() + " (" + idea.getTop() + " votes Top)");
+//			count++;
+//		}
 		
 		List<Post> posts = new ArrayList<>();
-		for (Post post : ideas) {
-			posts.add(post);
-		}
-		for (Post post : surveys) {
-			posts.add(post);
-		}
+		posts.addAll(surveys);
+		posts.addAll(ideas);
 		System.out.println("\nClassement Buzz :");
 		count = 1;
 		Post[] buzz = rank.buzzRanking(posts);
 		for (Post post : buzz) {
-			System.out.println(count + ". " + post.getTitle() + "(" + post.getComment().size() + " commentaires)");
+			if (post != null) {
+				System.out.println(count + ". " + post.getTitle() + "(" + post.getComment().size() + " commentaires)");
 			count++;
+			}
 		}
 		
-		System.out.println("\nClassement Brains :");
-		count = 1;
-		for (User user : mostIdeaUsers) {
-			System.out.println(count + ". " + user.getUsername());
-			count++;
-		}
-
-		us.reportPost(mb3, id1, "contenu innaproprié.");
-		List<Alert> alerts = data.getAlerts();
-		System.out.println("\nAlertes : " + alerts);
+//		System.out.println("\nClassement Brains :");
+//		count = 1;
+//		for (User user : mostIdeaUsers) {
+//			System.out.println(count + ". " + user.getUsername());
+//			count++;
+//		}
+//
+//		us.reportPost(mb3, id1, "contenu innaproprié.");
+//		List<Alert> alerts = data.getAlerts();
+//		System.out.println("\nAlertes : " + alerts);
 
 	}
 }
