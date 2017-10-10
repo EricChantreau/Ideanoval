@@ -105,10 +105,12 @@ public class DatabaseImpl implements Database {
 		categories.add(category);
 	}
 
+	@Override
 	public List<Alert> getAlerts() {
 		return alerts;
 	}
-
+	
+	@Override
 	public void addAlert(Alert alert) {
 		alerts.add(alert);
 	}
