@@ -2,6 +2,7 @@ package fr.humanbooster.test;
 
 import java.util.List;
 
+import fr.humanbooster.ideas.Alert;
 import fr.humanbooster.ideas.Category;
 import fr.humanbooster.ideas.Comment;
 import fr.humanbooster.ideas.Eval;
@@ -80,12 +81,16 @@ public class IdeaNovalTest {
 		System.out.println(posts);
 		System.out.println(categories);
 
-		System.out.println("\nTop posters:");
+		System.out.println("\nTop posters :");
 		int count = 1;
 		for (User user : mostIdeaUsers) {
 			System.out.println(count + ". " + user.getUsername());
 			count++;
 		}
+
+		us.reportPost(mb3, id1, "contenu innaproprié.");
+		List<Alert> alerts = data.getAlerts();
+		System.out.println("\nAlertes : " + alerts);
 
 	}
 }
