@@ -1,8 +1,6 @@
 package fr.humanbooster.ideas;
 
 import java.util.Date;
-
-import fr.humanbooster.users.Member;
 import fr.humanbooster.users.User;
 
 public class Alert {

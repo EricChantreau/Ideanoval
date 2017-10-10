@@ -48,8 +48,6 @@ public class UserServicesImpl implements UserServices {
 		alert.setPost(post);
 		
 		return alert;
-		// TODO Auto-generated method stub
-		
 	}
 
 }
