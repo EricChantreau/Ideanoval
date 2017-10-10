@@ -1,13 +1,14 @@
 package fr.humanbooster.ideas;
 
 import java.util.Date;
-import fr.humanbooster.users.User;
+
+import fr.humanbooster.users.Member;
 
 public class Alert {
 	
 	//Parametres : membre, date déclenchement, post
 	
-	public User member;
+	public Member member;
 	public Date date;
 	public Post post;
 	public boolean isActive;
@@ -18,10 +19,10 @@ public class Alert {
 	public void setActive(boolean isActive) {
 		this.isActive = isActive;
 	}
-	public User getMember() {
+	public Member getMember() {
 		return member;
 	}
-	public void setMember(User member) {
+	public void setMember(Member member) {
 		this.member = member;
 	}
 	public Date getDate() {

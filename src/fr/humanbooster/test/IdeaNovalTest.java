@@ -10,20 +10,21 @@ import fr.humanbooster.ideas.Post;
 import fr.humanbooster.ideas.Survey;
 import fr.humanbooster.services.AdminServices;
 import fr.humanbooster.services.Database;
-import fr.humanbooster.services.UserServices;
+import fr.humanbooster.services.MemberServices;
 import fr.humanbooster.services.impl.AdminServicesImpl;
 import fr.humanbooster.services.impl.DatabaseImpl;
-import fr.humanbooster.services.impl.UserServicesImpl;
+import fr.humanbooster.services.impl.MemberServicesImpl;
 import fr.humanbooster.users.Administrator;
 import fr.humanbooster.users.Member;
 import fr.humanbooster.users.User;
+
 
 public class IdeaNovalTest {
 
 	public static void main(String[] args) {
 		Database data = new DatabaseImpl();
-		UserServices us = new UserServicesImpl();
 		AdminServices as = new AdminServicesImpl();
+		MemberServices us = new MemberServicesImpl();
 
 		List<User> users = data.getUsers();
 		Member mb1 = (Member) users.get(0);

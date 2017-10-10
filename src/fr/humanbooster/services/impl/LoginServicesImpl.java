@@ -1,6 +1,8 @@
 package fr.humanbooster.services.impl;
 
 import java.util.List;
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
 
 import fr.humanbooster.services.Database;
 import fr.humanbooster.services.LoginServices;
@@ -9,6 +11,8 @@ import fr.humanbooster.users.User;
 public class LoginServicesImpl implements LoginServices {
 
 	private List<User> users;
+	public static final Pattern VALID_EMAIL_ADDRESS_REGEX = Pattern.compile("^[A-Z0-9._%+-]+@[A-Z0-9.-]+\\.[A-Z]{2,6}$",
+			Pattern.CASE_INSENSITIVE);
 
 	public LoginServicesImpl() {
 		Database db = new DatabaseImpl();
@@ -17,11 +21,20 @@ public class LoginServicesImpl implements LoginServices {
 
 	@Override
 	public boolean register(User user) {
-		if (containsUser(user))
-			return false;
+		if (checkEmail(user)) {
+			if (containsUser(user)) {
+				return false;
+			}
+			users.add(user);
+			return true;
+		}
+		System.out.println("Email non valide.");
+		return false;
+	}
 
-		users.add(user);
-		return true;
+	private boolean checkEmail(User user) {
+		Matcher matcher = VALID_EMAIL_ADDRESS_REGEX.matcher(user.getEmail());
+		return matcher.find();
 	}
 
 	private boolean containsUser(User user) {
