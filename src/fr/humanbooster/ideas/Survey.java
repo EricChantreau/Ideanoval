@@ -72,9 +72,12 @@ public class Survey extends Post {
 	@Override
 	public String toString() {
 		SimpleDateFormat sdf = new SimpleDateFormat("EEE dd MMM yyyy");
-		return "\n< SONDAGE > \n" + super.toString() + "\n" + "Consultation ouverte jusqu'au "
+		if (this.isActive()) {
+			return "\n< SONDAGE > \n" + super.toString() + "\n" + "Consultation ouverte jusqu'au "
 				+ sdf.format(getExpiracyDate()) + "\n" + optionsToString() + "\nCommentaires :\n" + super.getComment()
 				+ "\n";
+		}
+		return "Ce message a été désactivé.\n";
 	}
 
 	private String optionsToString() {

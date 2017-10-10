@@ -44,7 +44,10 @@ public class Comment {
 	public String toString() {
 		SimpleDateFormat sdf = new SimpleDateFormat("EEE dd MMM yyyy");
 		SimpleDateFormat time = new SimpleDateFormat("HH:mm:ss");
-		return "Le " + sdf.format(date) + " à " + time.format(date) + " " + author + " a écrit :\n « " + message + " »\n";
+		if (this.isActive()) {
+			return "Le " + sdf.format(date) + " à " + time.format(date) + " " + author + " a écrit :\n « " + message + " »\n";
+		}
+		return "Ce commentaire a été désactivé.\n";
 	}
 
 }

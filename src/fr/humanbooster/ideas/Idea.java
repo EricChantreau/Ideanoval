@@ -78,8 +78,11 @@ public class Idea extends Post {
 
 	@Override
 	public String toString() {
-		return "\n< IDÉE > \n" + super.toString() + "\nCommentaires :\n" + super.getComment() + "\n\nTop : " + top
+		if (this.isActive()) {
+			return "\n< IDÉE > \n" + super.toString() + "\nCommentaires :\n" + super.getComment() + "\n\nTop : " + top
 				+ ", Flop : " + flop + "\n";
+		}
+	return "Ce message a été désactivé.\n";
 	}
 
 }

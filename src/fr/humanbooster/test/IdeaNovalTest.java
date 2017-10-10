@@ -2,15 +2,19 @@ package fr.humanbooster.test;
 
 import java.util.List;
 
+import fr.humanbooster.ideas.Category;
 import fr.humanbooster.ideas.Comment;
 import fr.humanbooster.ideas.Eval;
 import fr.humanbooster.ideas.Idea;
 import fr.humanbooster.ideas.Post;
 import fr.humanbooster.ideas.Survey;
+import fr.humanbooster.services.AdminServices;
 import fr.humanbooster.services.Database;
 import fr.humanbooster.services.UserServices;
+import fr.humanbooster.services.impl.AdminServicesImpl;
 import fr.humanbooster.services.impl.DatabaseImpl;
 import fr.humanbooster.services.impl.UserServicesImpl;
+import fr.humanbooster.users.Administrator;
 import fr.humanbooster.users.Member;
 import fr.humanbooster.users.User;
 
@@ -19,12 +23,16 @@ public class IdeaNovalTest {
 	public static void main(String[] args) {
 		Database data = new DatabaseImpl();
 		UserServices us = new UserServicesImpl();
+		AdminServices as = new AdminServicesImpl();
 
 		List<User> users = data.getUsers();
 		Member mb1 = (Member) users.get(0);
 
 		List<Post> posts = data.getPosts();
 		Idea id1 = (Idea) posts.get(0);
+		
+		List<Category> categories = data.getCategories();
+		Category cat1 = categories.get(0);
 
 		Comment ct1 = new Comment(mb1, "First!");
 		id1.addComment(ct1);
@@ -52,8 +60,19 @@ public class IdeaNovalTest {
 		us.voteForIdea(mb3, id1, Eval.TOP);
 		us.voteForIdea(mb2, id1, Eval.FLOP);
 		
+		Administrator ad1 = new Administrator("rou@dou.dou", "lalala", "Roudoudou");
+		data.addUser(ad1);
+		
+		as.addCategory(new Category("Littérature"), categories);
+		as.disableComment(ct2);
+		as.disableMember(mb1);
+		as.deleteCategory(cat1, categories);
+		as.disablePost(sv1);
+		as.disableComment(ct1);
+		
 		/* AFFICHAGE */
 		System.out.println(posts);
+		System.out.println(categories);
 
 	}
 }
