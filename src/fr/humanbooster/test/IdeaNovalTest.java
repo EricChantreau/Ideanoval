@@ -91,6 +91,8 @@ public class IdeaNovalTest {
 			count++;
 		}
 		
+		System.out.println(ideas);
+		
 		System.out.println("\nTop posters :");
 		count = 1;
 		for (User user : mostIdeaUsers) {
