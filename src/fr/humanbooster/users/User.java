@@ -1,6 +1,8 @@
 package fr.humanbooster.users;
 
 import java.util.ArrayList;
+import java.util.Calendar;
+import java.util.Date;
 import java.util.List;
 
 import fr.humanbooster.ideas.Answer;
@@ -13,6 +15,7 @@ public abstract class User {
 	private String username;
 	private List<Vote> votes;
 	private List<Answer> answers;
+	private Date signUpDate;
 
 	public User(String email, String password, String username) {
 		this.email = email;
@@ -20,6 +23,11 @@ public abstract class User {
 		this.username = username;
 		this.votes = new ArrayList<>();
 		this.answers = new ArrayList<>();
+		this.signUpDate = Calendar.getInstance().getTime();
+	}
+	
+	public Date getSignUpDate() {
+		return signUpDate;
 	}
 
 	public String getEmail() {
