@@ -3,6 +3,7 @@ package fr.humanbooster.services.impl;
 import java.util.ArrayList;
 import java.util.List;
 
+import fr.humanbooster.ideas.Alert;
 import fr.humanbooster.ideas.Category;
 import fr.humanbooster.ideas.Idea;
 import fr.humanbooster.ideas.Option;
@@ -17,6 +18,7 @@ public class DatabaseImpl implements Database {
 	private List<User> users;
 	private List<Post> posts;
 	private List<Category> categories;
+	private List<Alert> alerts;
 
 	public DatabaseImpl() {
 		initUsers();
@@ -89,6 +91,14 @@ public class DatabaseImpl implements Database {
 
 	public void addCategory(Category category) {
 		categories.add(category);
+	}
+	
+	public List<Alert> getAlerts(){
+		return alerts;
+	}
+	
+	public void addAlert(Alert alert) {
+		alerts.add(alert);
 	}
 
 }
