@@ -2,6 +2,7 @@ package fr.humanbooster.services.impl;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Scanner;
 
 import fr.humanbooster.ideas.Alert;
 import fr.humanbooster.ideas.Category;
@@ -27,8 +28,11 @@ public class AdminServicesImpl implements AdminServices {
 
 @Override
 	public void customizeCategory(Category category) {
-		// TODO Auto-generated method stub
-		
+		Scanner sc = new Scanner(System.in);
+		System.out.println("Veuillez saisir le nouveau nom de la catégorie.");
+		String name = sc.nextLine();
+		category.setName(name);
+		sc.close();
 	}
 
 	@Override

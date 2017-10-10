@@ -46,7 +46,6 @@ public class MemberServicesImpl implements MemberServices {
 		alert.setActive(true);
 		alert.setMember(member);
 		alert.setPost(post);
-
 		return alert;
 	}
 
