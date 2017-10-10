@@ -120,5 +120,4 @@ public abstract class Post {
 	private String printCategory() {
 		return category == null ? "" : category.getName();
 	}
-
 }

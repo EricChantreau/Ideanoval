@@ -67,19 +67,20 @@ public class IdeaNovalTest {
 		Administrator ad1 = new Administrator("rou@dou.dou", "lalala", "Roudoudou");
 		data.addUser(ad1);
 
-		as.addCategory(new Category("Littérature"), categories);
-		as.disableComment(ct2);
-		as.disableMember(mb1);
-		as.deleteCategory(cat1, categories);
-		as.disablePost(sv1);
-		as.disableComment(ct1);
+//		RankingImpl rank = new RankingImpl();
+		
+//		as.addCategory(new Category("Littérature"), categories);
+//		as.disableComment(ct2);
+//		as.disableMember(mb1);
+//		as.deleteCategory(cat1, categories);
+//		as.disablePost(sv1);
+//		as.disableComment(ct1);
 		as.customizeCategory(cat2);
 
 		List<User> mostIdeaUsers = data.getMostIdeaUsers();
-
 		/* AFFICHAGE */
-		System.out.println(posts);
-		System.out.println(categories);
+//		System.out.println(posts);
+//		System.out.println(categories);
 
 		System.out.println("\nTop posters :");
 		int count = 1;
