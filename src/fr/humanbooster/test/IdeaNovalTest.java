@@ -14,7 +14,6 @@ import fr.humanbooster.services.MemberServices;
 import fr.humanbooster.services.impl.AdminServicesImpl;
 import fr.humanbooster.services.impl.DatabaseImpl;
 import fr.humanbooster.services.impl.MemberServicesImpl;
-import fr.humanbooster.services.impl.RankingImpl;
 import fr.humanbooster.users.Administrator;
 import fr.humanbooster.users.Member;
 import fr.humanbooster.users.User;
@@ -22,7 +21,7 @@ import fr.humanbooster.users.User;
 public class IdeaNovalTest {
 
 	public static void main(String[] args) {
-		Database data = new DatabaseImpl();
+		Database data = DatabaseImpl.getInstance();
 		AdminServices as = new AdminServicesImpl();
 		MemberServices us = new MemberServicesImpl();
 
@@ -67,7 +66,7 @@ public class IdeaNovalTest {
 		Administrator ad1 = new Administrator("rou@dou.dou", "lalala", "Roudoudou");
 		data.addUser(ad1);
 
-		RankingImpl rank = new RankingImpl();
+//		RankingImpl rank = new RankingImpl();
 		
 //		as.addCategory(new Category("Littérature"), categories);
 //		as.disableComment(ct2);
@@ -75,11 +74,19 @@ public class IdeaNovalTest {
 //		as.deleteCategory(cat1, categories);
 //		as.disablePost(sv1);
 //		as.disableComment(ct1);
-//		as.customizeCategory(cat2);
-		
+		as.customizeCategory(cat2);
+
+		List<User> mostIdeaUsers = data.getMostIdeaUsers();
 		/* AFFICHAGE */
 //		System.out.println(posts);
 //		System.out.println(categories);
+
+		System.out.println("\nTop posters:");
+		int count = 1;
+		for (User user : mostIdeaUsers) {
+			System.out.println(count + ". " + user.getUsername());
+			count++;
+		}
 
 	}
 }

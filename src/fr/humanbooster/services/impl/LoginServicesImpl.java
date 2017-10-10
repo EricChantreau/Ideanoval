@@ -15,7 +15,7 @@ public class LoginServicesImpl implements LoginServices {
 			Pattern.CASE_INSENSITIVE);
 
 	public LoginServicesImpl() {
-		Database db = new DatabaseImpl();
+		Database db = DatabaseImpl.getInstance();
 		users = db.getUsers();
 	}
 

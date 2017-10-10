@@ -1,8 +1,10 @@
 package fr.humanbooster.services.impl;
 
 import java.util.ArrayList;
+import java.util.Comparator;
 import java.util.List;
 
+import fr.humanbooster.ideas.Alert;
 import fr.humanbooster.ideas.Category;
 import fr.humanbooster.ideas.Idea;
 import fr.humanbooster.ideas.Option;
@@ -14,11 +16,21 @@ import fr.humanbooster.users.User;
 
 public class DatabaseImpl implements Database {
 
+	private static Database instance;
+
+	public static Database getInstance() {
+		if (instance == null) {
+			instance = new DatabaseImpl();
+		}
+		return instance;
+	}
+
 	private List<User> users;
 	private List<Post> posts;
 	private List<Category> categories;
+	private List<Alert> alerts;
 
-	public DatabaseImpl() {
+	private DatabaseImpl() {
 		initUsers();
 		initPosts();
 		initCategories();
@@ -83,12 +95,49 @@ public class DatabaseImpl implements Database {
 		return posts;
 	}
 
+	@Override
 	public List<Category> getCategories() {
 		return categories;
 	}
 
+	@Override
 	public void addCategory(Category category) {
 		categories.add(category);
 	}
 
+	@Override
+	public List<Alert> getAlerts() {
+		return alerts;
+	}
+	
+	@Override
+	public void addAlert(Alert alert) {
+		alerts.add(alert);
+	}
+
+	@Override
+	public List<User> getMostIdeaUsers() {
+		List<User> mostIdeaUsers = new ArrayList<>(users);
+		mostIdeaUsers.sort(new Comparator<User>() {
+
+			@Override
+			public int compare(User user1, User user2) {
+				return getNumberOfPosts(user2) - getNumberOfPosts(user1);
+			}
+		});
+		if (mostIdeaUsers.size() > 3) {
+			return mostIdeaUsers.subList(0, 3);
+		}
+		return mostIdeaUsers;
+	}
+
+	private int getNumberOfPosts(User author) {
+		int numberOfPosts = 0;
+		for (Post post : posts) {
+			if (post.getAuthor() == author) {
+				numberOfPosts++;
+			}
+		}
+		return numberOfPosts;
+	}
 }
