@@ -11,6 +11,14 @@ public class Alert {
 	public Member member;
 	public Date date;
 	public Post post;
+	public boolean isActive;
+	
+	public boolean isActive() {
+		return isActive;
+	}
+	public void setActive(boolean isActive) {
+		this.isActive = isActive;
+	}
 	public Member getMember() {
 		return member;
 	}
@@ -32,7 +40,7 @@ public class Alert {
 	
 	@Override
 	public String toString() {
-		return "Alert [member=" + member + ", date=" + date + ", post=" + post + "]";
+		return "Alert [member=" + member + ", date=" + date + ", post=" + post + ", isActive=" + isActive + "]";
 	}
 	
 
