@@ -6,7 +6,7 @@ public class Member extends User {
 
 	public Member(String email, String password, String username) {
 		super(email, password, username);
-		isActive = true;
+		isActive = false;
 	}
 
 	public Member(String email, String password, String username, boolean isActive) {
