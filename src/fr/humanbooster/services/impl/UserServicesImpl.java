@@ -1,5 +1,6 @@
 package fr.humanbooster.services.impl;
 
+import java.util.Calendar;
 import java.util.Date;
 
 import fr.humanbooster.ideas.Alert;
@@ -39,9 +40,13 @@ public class UserServicesImpl implements UserServices {
 	@Override
 	public Alert reportPost(User user, Post post, String alertMessage) {
 		Alert alert = new Alert();
-//		Date date = null;
-//		alert.setDate(date);
-//		
+		Calendar c = Calendar.getInstance();
+		Date date = c.getTime();
+		alert.setDate(date);
+		alert.setActive(true);
+		alert.setMember(user);
+		alert.setPost(post);
+		
 		return alert;
 		// TODO Auto-generated method stub
 		
