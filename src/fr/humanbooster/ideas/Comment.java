@@ -10,12 +10,14 @@ public class Comment {
 	private String message;
 	private String author;
 	private Date date;
+	private boolean isActive;
 
 	public Comment(Member member, String message) {
 		super();
 		this.message = message;
 		this.author = member.getUsername();
 		this.date = Calendar.getInstance().getTime();
+		this.isActive = true;
 	}
 
 	public String getMessage() {
@@ -28,6 +30,14 @@ public class Comment {
 
 	public Date getDate() {
 		return date;
+	}
+
+	public boolean isActive() {
+		return isActive;
+	}
+
+	public void setActive(boolean isActive) {
+		this.isActive = isActive;
 	}
 
 	@Override

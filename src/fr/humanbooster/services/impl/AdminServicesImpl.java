@@ -2,7 +2,7 @@ package fr.humanbooster.services.impl;
 
 import fr.humanbooster.ideas.Category;
 import fr.humanbooster.ideas.Comment;
-import fr.humanbooster.ideas.Idea;
+import fr.humanbooster.ideas.Post;
 import fr.humanbooster.services.AdminServices;
 import fr.humanbooster.users.User;
 
@@ -15,14 +15,14 @@ public class AdminServicesImpl implements AdminServices {
 	}
 
 	@Override
-	public void disableIdea(Idea idea) {
-		// TODO Auto-generated method stub
+	public void disablePost(Post post) {
+		post.setActive(false);
 		
 	}
 
 	@Override
 	public void disableComment(Comment comment) {
-		// TODO Auto-generated method stub
+		comment.setActive(false);
 		
 	}
 
