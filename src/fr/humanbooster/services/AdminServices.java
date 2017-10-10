@@ -23,12 +23,10 @@ public interface AdminServices {
 //	Supprimer catégorie
 //	Modifier catégorie
 	
-	// public void signUpValidation(User user);
 	public void signUpValidation(Member member); // seuls les Members ont un attribut isActive
 	public void disablePost(Post post);
 	public List<Alert> getAlerts(List<Alert> alerts);
 	public void disableComment(Comment comment);
-	// public void disableUser(User user);
 	public void disableMember(Member member); // seuls les Members ont un attribut isActive
 	public void deleteUser(User user, List<User> userBase);
 	public void addCategory(Category category, List<Category> categoryBase);
