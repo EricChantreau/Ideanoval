@@ -88,16 +88,14 @@ public class Idea extends Post implements Comparator<Idea> {
 
 	@Override
 	public int compare(Idea id1, Idea id2) {
-		while (id1.getClass().toString().equals("Idea")) {
-			int topId1 = id1.getTop();
-			int topId2 = id2.getTop();
-			if (topId1 == topId2) {
-				return 0;
-			} else if (topId1 < topId2) {
-				return -1;
-			}else if (topId1 > topId2) {
-				return 1;
-			}
+		int topId1 = id1.getTop();
+		int topId2 = id2.getTop();
+		if (topId1 == topId2) {
+			return 0;
+		} else if (topId1 < topId2) {
+			return 1;
+		}else if (topId1 > topId2) {
+			return -1;
 		}
 		return 2;
 	}

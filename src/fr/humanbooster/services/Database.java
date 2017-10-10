@@ -4,7 +4,8 @@ import java.util.List;
 
 import fr.humanbooster.ideas.Alert;
 import fr.humanbooster.ideas.Category;
-import fr.humanbooster.ideas.Post;
+import fr.humanbooster.ideas.Idea;
+import fr.humanbooster.ideas.Survey;
 import fr.humanbooster.users.User;
 
 public interface Database {
@@ -15,7 +16,9 @@ public interface Database {
 
 	public void addUser(User user);
 
-	public List<Post> getPosts();
+	public List<Idea> getIdeas();
+	
+	public List<Survey> getSurveys();
 
 	public List<Category> getCategories();
 
