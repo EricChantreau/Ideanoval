@@ -17,11 +17,25 @@ public class LoginServicesImpl implements LoginServices {
 
 	@Override
 	public boolean register(User user) {
-		if (users.contains(user))
+		if (containsUser(user))
 			return false;
 
 		users.add(user);
 		return true;
+	}
+
+	private boolean containsUser(User user) {
+		for (User registeredUser : users) {
+			if (registeredUser.getEmail().equals(user.getEmail())) {
+				System.out.println("Login déjà utilisé.");
+				return true;
+			}
+			if (registeredUser.getUsername().equals(user.getUsername())) {
+				System.out.println("Username déjà utilisé.");
+				return true;
+			}
+		}
+		return false;
 	}
 
 	@Override
