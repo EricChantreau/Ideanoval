@@ -1,20 +1,27 @@
 package fr.humanbooster.ideas;
 
 import java.util.Date;
-
-import fr.humanbooster.users.Member;
+import fr.humanbooster.users.User;
 
 public class Alert {
 	
 	//Parametres : membre, date déclenchement, post
 	
-	public Member member;
+	public User member;
 	public Date date;
 	public Post post;
-	public Member getMember() {
+	public boolean isActive;
+	
+	public boolean isActive() {
+		return isActive;
+	}
+	public void setActive(boolean isActive) {
+		this.isActive = isActive;
+	}
+	public User getMember() {
 		return member;
 	}
-	public void setMember(Member member) {
+	public void setMember(User member) {
 		this.member = member;
 	}
 	public Date getDate() {
@@ -32,7 +39,7 @@ public class Alert {
 	
 	@Override
 	public String toString() {
-		return "Alert [member=" + member + ", date=" + date + ", post=" + post + "]";
+		return "Alert [member=" + member + ", date=" + date + ", post=" + post + ", isActive=" + isActive + "]";
 	}
 	
 

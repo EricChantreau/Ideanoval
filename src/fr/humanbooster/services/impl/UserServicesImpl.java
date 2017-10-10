@@ -1,8 +1,13 @@
 package fr.humanbooster.services.impl;
 
+import java.util.Calendar;
+import java.util.Date;
+
+import fr.humanbooster.ideas.Alert;
 import fr.humanbooster.ideas.Answer;
 import fr.humanbooster.ideas.Eval;
 import fr.humanbooster.ideas.Idea;
+import fr.humanbooster.ideas.Post;
 import fr.humanbooster.ideas.Survey;
 import fr.humanbooster.ideas.Vote;
 import fr.humanbooster.services.UserServices;
@@ -30,6 +35,19 @@ public class UserServicesImpl implements UserServices {
 			user.addAnswer(answer);
 			survey.addAnswer(answer);
 		}
+	}
+
+	@Override
+	public Alert reportPost(User user, Post post, String alertMessage) {
+		Alert alert = new Alert();
+		Calendar c = Calendar.getInstance();
+		Date date = c.getTime();
+		alert.setDate(date);
+		alert.setActive(true);
+		alert.setMember(user);
+		alert.setPost(post);
+
+		return alert;
 	}
 
 }
