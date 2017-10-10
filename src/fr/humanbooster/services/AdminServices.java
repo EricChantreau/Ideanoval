@@ -19,7 +19,6 @@ public interface AdminServices {
 //	Supprimer catégorie
 //	Modifier catégorie
 	
-	
 	public void signUpValidation(User user);
 //	public Alert getAlerts(List<Alert> alerts);
 	public void disableIdea(Idea idea);
@@ -29,8 +28,4 @@ public interface AdminServices {
 	public Category addCategory();
 	public void deleteCategory(Category category);
 	public void customizeCategory(Category category);
-	
-	
-	
-	
 }
