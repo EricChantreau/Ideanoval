@@ -1,5 +1,6 @@
 package fr.humanbooster.test;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import fr.humanbooster.ideas.Alert;
@@ -7,6 +8,7 @@ import fr.humanbooster.ideas.Category;
 import fr.humanbooster.ideas.Comment;
 import fr.humanbooster.ideas.Eval;
 import fr.humanbooster.ideas.Idea;
+import fr.humanbooster.ideas.Post;
 import fr.humanbooster.ideas.Survey;
 import fr.humanbooster.services.AdminServices;
 import fr.humanbooster.services.Database;
@@ -83,15 +85,30 @@ public class IdeaNovalTest {
 //		System.out.println(posts);
 //		System.out.println(categories);
 
-		System.out.println("\nTop ideas :");
+		System.out.println("\nClassement Tops :");
 		int count = 1;
 		Idea[] topIdeas = rank.topRanking(ideas);
 		for (Idea idea : topIdeas) {
-			System.out.println(count + ". " + idea.getTitle() + " (" + idea.getTop() + ")");
+			System.out.println(count + ". " + idea.getTitle() + " (" + idea.getTop() + " votes Top)");
 			count++;
 		}
 		
-		System.out.println("\nTop posters :");
+		System.out.println("\nClassement Buzz :");
+		count = 1;
+		List<Post> posts = new ArrayList<>();
+		for (Post post : ideas) {
+			posts.add(post);
+		}
+		for (Post post : surveys) {
+			posts.add(post);
+		}
+		Post[] buzz = rank.buzzRanking(posts);
+		for (Post post : buzz) {
+			System.out.println(count + ". " + post.getTitle() + "(" + post.getComment().size() + " commentaires)");
+			count++;
+		}
+		
+		System.out.println("\nClassement Brains :");
 		count = 1;
 		for (User user : mostIdeaUsers) {
 			System.out.println(count + ". " + user.getUsername());
