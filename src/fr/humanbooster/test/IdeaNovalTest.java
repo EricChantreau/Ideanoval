@@ -14,6 +14,7 @@ import fr.humanbooster.services.MemberServices;
 import fr.humanbooster.services.impl.AdminServicesImpl;
 import fr.humanbooster.services.impl.DatabaseImpl;
 import fr.humanbooster.services.impl.MemberServicesImpl;
+import fr.humanbooster.services.impl.RankingImpl;
 import fr.humanbooster.users.Administrator;
 import fr.humanbooster.users.Member;
 import fr.humanbooster.users.User;
@@ -66,17 +67,19 @@ public class IdeaNovalTest {
 		Administrator ad1 = new Administrator("rou@dou.dou", "lalala", "Roudoudou");
 		data.addUser(ad1);
 
-		as.addCategory(new Category("Littérature"), categories);
-		as.disableComment(ct2);
-		as.disableMember(mb1);
-		as.deleteCategory(cat1, categories);
-		as.disablePost(sv1);
-		as.disableComment(ct1);
-		as.customizeCategory(cat2);
+		RankingImpl rank = new RankingImpl();
+		
+//		as.addCategory(new Category("Littérature"), categories);
+//		as.disableComment(ct2);
+//		as.disableMember(mb1);
+//		as.deleteCategory(cat1, categories);
+//		as.disablePost(sv1);
+//		as.disableComment(ct1);
+//		as.customizeCategory(cat2);
 		
 		/* AFFICHAGE */
-		System.out.println(posts);
-		System.out.println(categories);
+//		System.out.println(posts);
+//		System.out.println(categories);
 
 	}
 }

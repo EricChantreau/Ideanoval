@@ -2,12 +2,13 @@ package fr.humanbooster.ideas;
 
 import java.util.ArrayList;
 import java.util.Calendar;
+import java.util.Comparator;
 import java.util.Date;
 import java.util.List;
 
 import fr.humanbooster.users.Member;
 
-public class Idea extends Post {
+public class Idea extends Post implements Comparator<Idea> {
 
 	private int top;
 	private int flop;
@@ -83,6 +84,22 @@ public class Idea extends Post {
 				+ ", Flop : " + flop + "\n";
 		}
 	return "Ce message a été désactivé.\n";
+	}
+
+	@Override
+	public int compare(Idea id1, Idea id2) {
+		while (id1.getClass().toString().equals("Idea")) {
+			int topId1 = id1.getTop();
+			int topId2 = id2.getTop();
+			if (topId1 == topId2) {
+				return 0;
+			} else if (topId1 < topId2) {
+				return -1;
+			}else if (topId1 > topId2) {
+				return 1;
+			}
+		}
+		return 2;
 	}
 
 }
