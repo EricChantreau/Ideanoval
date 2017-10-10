@@ -40,9 +40,9 @@ public class AdminServicesImpl implements AdminServices {
 	public List<Alert> getAlerts(List<Alert> alerts) {
 		List<Alert> alertsNotTreated = new ArrayList<>();
 		for (Alert alert : alerts) {
-			// if (alert.isActive) {
+			if (alert.isActive) {
 			alertsNotTreated.add(alert);
-			// }
+			}
 		}
 		return alertsNotTreated;
 	}
@@ -66,8 +66,8 @@ public class AdminServicesImpl implements AdminServices {
 
 	@Override
 	public void deleteCategory(Category category, List<Category> categoryBase) {
-		// TODO Auto-generated method stub
-		
+		int iCategory = categoryBase.indexOf(category);
+		categoryBase.remove(iCategory);
 	}
 
 }
