@@ -1,5 +1,8 @@
 package fr.humanbooster.services.impl;
 
+import java.util.List;
+
+import fr.humanbooster.ideas.Alert;
 import fr.humanbooster.ideas.Category;
 import fr.humanbooster.ideas.Comment;
 import fr.humanbooster.ideas.Idea;
@@ -54,6 +57,12 @@ public class AdminServicesImpl implements AdminServices {
 	public void customizeCategory(Category category) {
 		// TODO Auto-generated method stub
 		
+	}
+
+	@Override
+	public Alert getAlerts(List<Alert> alerts) {
+		// TODO Auto-generated method stub
+		return null;
 	}
 
 }
