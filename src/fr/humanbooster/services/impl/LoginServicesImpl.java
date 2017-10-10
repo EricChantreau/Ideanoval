@@ -28,6 +28,7 @@ public class LoginServicesImpl implements LoginServices {
 			users.add(user);
 			return true;
 		}
+		System.out.println("Email non valide.");
 		return false;
 	}
 
