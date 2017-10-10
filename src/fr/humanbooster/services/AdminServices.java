@@ -23,7 +23,7 @@ public interface AdminServices {
 //	public Alert getAlerts(List<Alert> alerts);
 	public void disableIdea(Idea idea);
 	public void disableComment(Comment comment);
-	public void diableUser(User user);
+	public void disableUser(User user);
 	public void deleteUser(User user);
 	public Category addCategory();
 	public void deleteCategory(Category category);

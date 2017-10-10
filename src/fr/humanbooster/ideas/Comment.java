@@ -22,6 +22,14 @@ public class Comment {
 		return message;
 	}
 
+	public String getAuthor() {
+		return author;
+	}
+
+	public Date getDate() {
+		return date;
+	}
+
 	@Override
 	public String toString() {
 		SimpleDateFormat sdf = new SimpleDateFormat("EEE dd MMM yyyy");
