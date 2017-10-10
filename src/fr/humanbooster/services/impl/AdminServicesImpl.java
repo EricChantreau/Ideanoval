@@ -55,8 +55,7 @@ public class AdminServicesImpl implements AdminServices {
 
 	@Override
 	public void deleteUser(User user, List<User> userBase) {
-		int iUser = userBase.indexOf(user);
-		userBase.remove(iUser);
+		userBase.remove(user);
 	}
 
 	@Override
@@ -66,8 +65,7 @@ public class AdminServicesImpl implements AdminServices {
 
 	@Override
 	public void deleteCategory(Category category, List<Category> categoryBase) {
-		int iCategory = categoryBase.indexOf(category);
-		categoryBase.remove(iCategory);
+		categoryBase.remove(category);
 	}
 
 }
