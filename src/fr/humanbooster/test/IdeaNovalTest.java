@@ -93,8 +93,6 @@ public class IdeaNovalTest {
 			count++;
 		}
 		
-		System.out.println("\nClassement Buzz :");
-		count = 1;
 		List<Post> posts = new ArrayList<>();
 		for (Post post : ideas) {
 			posts.add(post);
@@ -102,6 +100,8 @@ public class IdeaNovalTest {
 		for (Post post : surveys) {
 			posts.add(post);
 		}
+		System.out.println("\nClassement Buzz :");
+		count = 1;
 		Post[] buzz = rank.buzzRanking(posts);
 		for (Post post : buzz) {
 			System.out.println(count + ". " + post.getTitle() + "(" + post.getComment().size() + " commentaires)");
