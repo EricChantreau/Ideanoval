@@ -9,7 +9,7 @@ import java.util.List;
 import fr.humanbooster.users.Member;
 
 public abstract class Post {
-	private String author;
+	private Member author;
 	private String title;
 	private String description;
 	private boolean isActive;
@@ -31,7 +31,7 @@ public abstract class Post {
 
 	public Post(Member member, String title, String description) {
 		super();
-		this.author = member.getUsername();
+		this.author = member;
 		this.title = title;
 		this.description = description;
 		this.isActive = true;
@@ -43,13 +43,21 @@ public abstract class Post {
 
 	public Post(Member member, String title, String description, Category category) {
 		super();
-		this.author = member.getUsername();
+		this.author = member;
 		this.title = title;
 		this.description = description;
 		this.isActive = true;
 		this.date = Calendar.getInstance().getTime();
 		this.comment = new ArrayList<Comment>();
 		this.category = category;
+	}
+
+	public Member getAuthor() {
+		return author;
+	}
+
+	public void setAuthor(Member member) {
+		this.author = member;
 	}
 
 	public String getTitle() {
@@ -104,8 +112,9 @@ public abstract class Post {
 	public String toString() {
 		SimpleDateFormat sdf = new SimpleDateFormat("EEE dd MMM yyyy");
 		SimpleDateFormat time = new SimpleDateFormat("HH:mm:ss");
-		return "[" + printCategory() + "]\nPar " + author + " le " + sdf.format(date) + " à " + time.format(date)
-				+ "\n\nIdée : " + title + "\n\n" + description + "\n\n(Affichage : " + isActive + ")\n";
+		return "[" + printCategory() + "]\nPar " + author.getUsername() + " le " + sdf.format(date) + " à "
+				+ time.format(date) + "\n\nIdée : " + title + "\n\n" + description + "\n\n(Affichage : " + isActive
+				+ ")\n";
 	}
 
 	private String printCategory() {

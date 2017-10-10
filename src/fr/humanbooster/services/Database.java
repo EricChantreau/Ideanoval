@@ -15,8 +15,10 @@ public interface Database {
 	public void addUser(User user);
 
 	public List<Post> getPosts();
-	
+
 	public List<Category> getCategories();
-	
+
 	public void addCategory(Category category);
+
+	public List<User> getMostIdeaUsers();
 }
