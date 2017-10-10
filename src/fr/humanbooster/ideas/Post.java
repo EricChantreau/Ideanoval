@@ -16,7 +16,7 @@ public abstract class Post {
 	private Date date;
 	private List<Comment> comment;
 	private Category category;
-	
+
 	public Post() {
 		super();
 		this.author = null;
@@ -27,8 +27,8 @@ public abstract class Post {
 		this.comment = new ArrayList<Comment>();
 	}
 
-		//Constructeur sans catégorie:
-	
+	// Constructeur sans catégorie:
+
 	public Post(Member member, String title, String description) {
 		super();
 		this.author = member.getUsername();
@@ -38,9 +38,9 @@ public abstract class Post {
 		this.date = Calendar.getInstance().getTime();
 		this.comment = new ArrayList<Comment>();
 	}
-	
-		//Constructeur avec catégorie:
-	
+
+	// Constructeur avec catégorie:
+
 	public Post(Member member, String title, String description, Category category) {
 		super();
 		this.author = member.getUsername();
@@ -91,11 +91,11 @@ public abstract class Post {
 	public void addComment(Comment comment) {
 		this.comment.add(comment);
 	}
-	
+
 	public Category getCategory() {
 		return category;
 	}
-	
+
 	public void setCategory(Category category) {
 		this.category = category;
 	}
@@ -104,8 +104,12 @@ public abstract class Post {
 	public String toString() {
 		SimpleDateFormat sdf = new SimpleDateFormat("EEE dd MMM yyyy");
 		SimpleDateFormat time = new SimpleDateFormat("HH:mm:ss");
-		return "\nPar " + author + " le " + sdf.format(date) + " à " + time.format(date) + "\n\nIdée : " + title + "\n\n" + description + "\n\n(Affichage : "
-				+ isActive + ")\n";
+		return "[" + printCategory() + "]\nPar " + author + " le " + sdf.format(date) + " à " + time.format(date)
+				+ "\n\nIdée : " + title + "\n\n" + description + "\n\n(Affichage : " + isActive + ")\n";
+	}
+
+	private String printCategory() {
+		return category == null ? "" : category.getName();
 	}
 
 }
