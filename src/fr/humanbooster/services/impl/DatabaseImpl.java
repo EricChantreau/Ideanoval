@@ -36,6 +36,7 @@ public class DatabaseImpl implements Database {
 		initIdeas();
 		initSurveys();
 		initCategories();
+		initAlerts();
 	}
 
 	private void initUsers() {
@@ -84,6 +85,10 @@ public class DatabaseImpl implements Database {
 		categories.add(new Category("Informatique"));
 	}
 
+	private void initAlerts() {
+		alerts = new ArrayList<>();
+	}
+
 	@Override
 	public List<User> getUsers() {
 		return users;
@@ -127,7 +132,7 @@ public class DatabaseImpl implements Database {
 	public List<Alert> getAlerts() {
 		return alerts;
 	}
-	
+
 	@Override
 	public void addAlert(Alert alert) {
 		alerts.add(alert);
