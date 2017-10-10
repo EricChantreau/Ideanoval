@@ -1,5 +1,8 @@
 package fr.humanbooster.services;
 
+import java.util.List;
+
+import fr.humanbooster.ideas.Alert;
 import fr.humanbooster.ideas.Category;
 import fr.humanbooster.ideas.Comment;
 import fr.humanbooster.ideas.Post;
@@ -20,8 +23,8 @@ public interface AdminServices {
 //	Modifier catégorie
 	
 	public void signUpValidation(User user);
-//	public Alert getAlerts(List<Alert> alerts);
 	public void disablePost(Post post);
+	public Alert getAlerts(List<Alert> alerts);
 	public void disableComment(Comment comment);
 	public void disableUser(User user);
 	public void deleteUser(User user);
