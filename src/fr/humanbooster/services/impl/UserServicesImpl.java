@@ -46,7 +46,7 @@ public class UserServicesImpl implements UserServices {
 		alert.setActive(true);
 		alert.setMember(user);
 		alert.setPost(post);
-		
+
 		return alert;
 	}
 
