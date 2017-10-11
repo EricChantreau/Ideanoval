@@ -22,18 +22,16 @@ public class RankingImpl implements Ranking {
 	@Override
 	public Post[] buzzRanking(List<Post> posts) {
 		Post[] buzz = {null, null, null};
+		// faire un sort avec compare en interne (conseil Guillaume)
 		for (int i = 0; i < buzz.length; ++i) {
 			for (int j = 0; j < posts.size(); ++j) {
 				if (buzz[i] == null) {
 					buzz[i] = posts.get(j);
-					posts.remove(posts.get(j));
-					j--;
 				} else if (buzz[i].getComment().size() < posts.get(j).getComment().size()) {
 					buzz[i] = posts.get(j);
-					posts.remove(posts.get(j));
-					j--;
 				}
 			}
+					posts.remove(buzz[i]);
 		}
 		
 		return buzz;
