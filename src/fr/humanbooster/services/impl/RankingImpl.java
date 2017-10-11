@@ -14,7 +14,9 @@ public class RankingImpl implements Ranking {
 		Idea[] tops = new Idea[3];
 		ideas.sort(new Idea());
 		for (int i = 0; i < tops.length; i++) {
-			tops[i] = ideas.get(i);
+			while (ideas.get(i).getTop() + ideas.get(i).getFlop() >= 5) {
+				tops[i] = ideas.get(i);
+			}
 		}
 		return tops;
 	}
@@ -22,7 +24,6 @@ public class RankingImpl implements Ranking {
 	@Override
 	public Post[] buzzRanking(List<Post> posts) {
 		Post[] buzz = {null, null, null};
-		// faire un sort avec compare en interne (conseil Guillaume)
 		for (int i = 0; i < buzz.length; ++i) {
 			for (int j = 0; j < posts.size(); ++j) {
 				if (buzz[i] == null) {
