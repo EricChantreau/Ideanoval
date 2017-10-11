@@ -14,7 +14,7 @@ public class RankingImpl implements Ranking {
 		Idea[] tops = new Idea[3];
 		ideas.sort(new Idea());
 		for (int i = 0; i < tops.length; i++) {
-			if (ideas.get(i).getTop() + ideas.get(i).getFlop() >= 5) {
+			if (ideas.get(i).isActive() && (ideas.get(i).getTop() + ideas.get(i).getFlop() >= 5)) {
 				tops[i] = ideas.get(i);
 			}
 		}
@@ -26,10 +26,12 @@ public class RankingImpl implements Ranking {
 		Post[] buzz = {null, null, null};
 		for (int i = 0; i < buzz.length; ++i) {
 			for (int j = 0; j < posts.size(); ++j) {
-				if (buzz[i] == null) {
-					buzz[i] = posts.get(j);
-				} else if (buzz[i].getComment().size() < posts.get(j).getComment().size()) {
-					buzz[i] = posts.get(j);
+				if (posts.get(j).isActive()) {
+					if (buzz[i] == null) {
+						buzz[i] = posts.get(j);
+					} else if (buzz[i].getComment().size() < posts.get(j).getComment().size()) {
+						buzz[i] = posts.get(j);
+					}
 				}
 			}
 					posts.remove(buzz[i]);
