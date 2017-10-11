@@ -14,7 +14,7 @@ public class RankingImpl implements Ranking {
 		Idea[] tops = new Idea[3];
 		ideas.sort(new Idea());
 		for (int i = 0; i < tops.length; i++) {
-			while (ideas.get(i).getTop() + ideas.get(i).getFlop() >= 5) {
+			if (ideas.get(i).getTop() + ideas.get(i).getFlop() >= 5) {
 				tops[i] = ideas.get(i);
 			}
 		}
